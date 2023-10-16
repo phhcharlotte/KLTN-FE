@@ -1,13 +1,13 @@
 <template>
     <div>
-        <!-- hello -->
+        123
     </div>
 </template>
 
 <script setup>
-// definePageMeta({
-//   middleware: "auth",
-// });
+definePageMeta({
+  layout: "layout"
+});
 </script>
 
 <style lang="scss" scoped>

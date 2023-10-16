@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware(() => {
       });
     } else {
       return navigateTo({
-        name: "app-home",
+        name: "home",
       });
     }
   });

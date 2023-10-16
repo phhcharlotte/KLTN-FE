@@ -50,7 +50,7 @@ const formState = reactive({
 });
 const onFinish = () => {
     return navigateTo({
-      name: "app-home",
+      name: "home",
     });
 };
 const onFinishFailed = errorInfo => {
