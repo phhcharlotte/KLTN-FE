@@ -3,7 +3,7 @@
         <div class="list-topic__search">
             <a-input placeholder="Nhập tên tên giáo viên ..."/>
             <a-button type="primary">Search</a-button>
-            <a-button type="primary">Đăng ký đề tài</a-button>
+            <a-button type="primary" @click="handleForm">Đăng ký đề tài</a-button>
         </div>
         <a-table :columns="columns" :data-source="data">
           <template #bodyCell="{ column, text }">
@@ -12,12 +12,14 @@
             </template>
           </template>
         </a-table>
+        <modal-form-register v-if="isOpen"/>
     </div>
   </template>
   <script setup>
   definePageMeta({
   layout: "layout"
 });
+  const isOpen = ref(false);
   const columns = [
     {
       title: 'MGV',
@@ -78,6 +80,10 @@
       tags: ['cool', 'teacher'],
     },
   ];
+  const handleForm = () =>{
+    isOpen.value = true;
+    console.log(123)
+  }
   </script>
 
 <style lang="scss" scoped>
