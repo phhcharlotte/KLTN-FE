@@ -1,11 +1,8 @@
 <template>
-  <a-modal
-    v-model:open="visible"
-    title=""
-    footer=""
-    :closable="false"
-    width="80%"
-  >
+  <a-modal v-model:open="visible" footer="" :closable="false" width="60%">
+    <template #title>
+      <div class="header">Đăng ký đề tài</div>
+    </template>
     <a-form
       :model="formState"
       v-bind="layout"
@@ -23,14 +20,14 @@
       <a-form-item
         :name="['user', 'email']"
         label="Email"
-        :rules="[{ type: 'email' }]"
+        :rules="[{ type: 'email', required: true }]"
       >
         <a-input v-model:value="formState.user.email" />
       </a-form-item>
       <a-form-item
         :name="['user', 'age']"
         label="Mã Sinh Viên"
-        :rules="[{ type: 'number', min: 0, max: 99 }]"
+        :rules="[{ required: true }]"
       >
         <a-input v-model:value="formState.user.age" />
       </a-form-item>
@@ -41,8 +38,10 @@
         <a-textarea v-model:value="formState.user.introduction" />
       </a-form-item>
       <a-form-item :wrapper-col="{ ...layout.wrapperCol, offset: 8 }">
-        <a-button type="primary" html-type="submit">Đăng ký</a-button>
-        <a-button type="primary" @click="onCloseModal">Huỷ bỏ</a-button>
+        <div class="footer">
+          <a-button type="primary" html-type="submit">Đăng ký</a-button>
+          <a-button type="primary" @click="onCloseModal">Huỷ bỏ</a-button>
+        </div>
       </a-form-item>
     </a-form>
   </a-modal>
@@ -85,4 +84,13 @@ const onFinish = (values) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.header {
+  text-align: center;
+}
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+</style>
