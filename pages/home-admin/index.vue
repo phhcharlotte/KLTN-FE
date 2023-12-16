@@ -17,7 +17,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: "layout",
+  layout: "layoutAd",
 });
 const isOpen = ref(false);
 const columns = [
